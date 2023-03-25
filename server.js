@@ -1,4 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
+const projectData = {};
 // Express to run server and routes
 const express = require('express');
 // Start up an instance of app
@@ -23,7 +24,15 @@ function serverCallback() {
     console.log(`Started at port: ${port}`);
 }
 // Initialize all route with a callback function
-
+app.get('/all', getAllData)
 // Callback function to complete GET '/all'
-
+function getAllData(req, res) {
+    res.send(projectData);
+}
 // Post Route
+app.post('/addData', addData);
+
+const data = [];
+function addData(req, res){
+    data.push(req.body);
+}

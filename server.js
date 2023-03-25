@@ -32,7 +32,8 @@ function getAllData(req, res) {
 // Post Route
 app.post('/addData', addData);
 
-const data = [];
 function addData(req, res){
-    data.push(req.body);
+    projectData.temperature = req.body.temp;
+    projectData.date = req.body.date;
+    projectData.userResponse = req.body.userResponse;
 }

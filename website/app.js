@@ -10,7 +10,6 @@ function generateAPICall(e){
         .then(weatherData => {
             weatherData.userResponse = document.getElementById('feelings').value;
             weatherData.date = new Date();
-            console.log(weatherData);
             postData('addData', weatherData);
         })
         .then(data => {
@@ -50,7 +49,6 @@ async function updateUI(){
     const req = await fetch('all');
     try {
         const receivedData = await req.json();
-        console.log(receivedData);
         document.getElementById('date').innerHTML = `<h2>${receivedData.date}</h2>`
         document.getElementById('temp').innerHTML = `<h2>${Math.round(receivedData.temperature)+ 'degrees'}</h2>`
         document.getElementById('content').innerHTML = `<h2>${receivedData.feelings}</h2>`

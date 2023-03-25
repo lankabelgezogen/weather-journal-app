@@ -33,7 +33,7 @@ function getAllData(req, res) {
 app.post('/addData', addData);
 
 function addData(req, res){
-    projectData.temperature = req.body.temp;
+    projectData.temperature = req.body.main.temp;
     projectData.date = req.body.date;
-    projectData.userResponse = req.body.userResponse;
+    projectData.feelings = req.body.userResponse;
 }

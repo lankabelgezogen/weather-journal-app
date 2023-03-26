@@ -1,5 +1,5 @@
 // Personal API Key for OpenWeatherMap API
-const apiKey = 'e6d6fbc638daf47c785e60f9dd1dcad1&units=imperial';
+const apiKey = 'e6d6fbc638daf47c785e60f9dd1dcad1&units=imperial'; //deactivated, throwaway acc
 const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 // Event listener to add function to existing HTML DOM element
 document.getElementById('generate').addEventListener('click', generateAPICall)
@@ -8,6 +8,7 @@ function generateAPICall(e){
     const zip = document.getElementById('zip').value;
     getDataFromAPI(baseUrl, zip, apiKey)
         .then(weatherData => {
+            console.log(weatherData);
             weatherData.userResponse = document.getElementById('feelings').value;
             weatherData.date = new Date();
             postData('addData', weatherData);
